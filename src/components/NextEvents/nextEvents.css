@@ -1,0 +1,16 @@
+.nextEvents{
+    display: flex;
+    flex-direction: column;
+}
+
+.next-events-title{
+    display: flex;
+    flex-direction: column;
+    margin: 36px;
+}
+
+.display-cards{
+    margin-left: 40px;
+    display: flex;
+    justify-content: space-evenly;
+}
