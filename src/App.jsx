@@ -1,11 +1,12 @@
 import React from 'react';
 import Main from "./pages/main";
+import Login from './pages/login'
 
 function App() {
     return (
-        <>
-            <Main />
-        </>
+        <div className='App'>
+            <Login />
+        </div>
     );
 }
 
