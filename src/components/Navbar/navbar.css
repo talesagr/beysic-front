@@ -34,6 +34,22 @@
     align-items: center;
 }
 
+.right #register {
+    background-color: #1A4B7A;
+    color: #E3E3E3;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.right #register:hover {
+    background-color: #FBC02D;
+    color: #000000;
+}
+
+.right #login:hover {
+    background-color: #1A4B7A;
+    color: #E3E3E3;
+}
+
 .right button {
     padding: 10px;
     background-color: transparent;
@@ -45,6 +61,8 @@
     align-items: center;
     margin: 12px;
     font-size: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
 }
 
 .right .auth {

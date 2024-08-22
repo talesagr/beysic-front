@@ -4,9 +4,11 @@ import './login.css'
 
 export default function Login() {
     return(
-        <div className='homepage'>
+        <>
             <Navbar/>
-            <Form/>
-        </div>
+            <body className='login-body'>
+                <Form/>
+            </body>
+        </>
     )
 }
