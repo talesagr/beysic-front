@@ -2,9 +2,9 @@ import './cards.css'
 
 const Cards = ({houseName, image, description, backgroundImage}) => {
     return (
-        <div className="cards">
-            <div className='header' style={{backgroundImage: `url(https://w.wallhaven.cc/full/9d/wallhaven-9dp3y1.jpg)`}}>
-                <img src={"https://github.com/talesagr.png"} alt={'name'}></img>
+         <div className="cards">
+            <div className='header'>
+                <img src={"https://www.designi.com.br/images/preview/11807908.jpg"} alt={'name'}></img>
             </div>
             <div className='bottom'>
                 <h4>{houseName}</h4>

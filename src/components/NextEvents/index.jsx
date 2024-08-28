@@ -7,19 +7,16 @@ const NextEvents = (props) => {
     let cards = [
         {
             houseName : 'Bocatto',
-            image : 'https://github.com/talesagr.png',
             description : 'Erechim, RS',
             backgroundImage : 'https://w.wallhaven.cc/full/9d/wallhaven-9dp3y1.jpg'
         },
         {
             houseName : 'Veld',
-            image : 'https://github.com/talesagr.png',
             description : 'Erechim, RS',
             backgroundImage : 'https://w.wallhaven.cc/full/9d/wallhaven-9dp3y1.jpg'
         },
         {
             houseName : 'Posto Tradição',
-            image : 'https://github.com/talesagr.png',
             description : 'Erechim, RS',
             backgroundImage : 'https://w.wallhaven.cc/full/9d/wallhaven-9dp3y1.jpg'
         },
@@ -35,7 +32,6 @@ const NextEvents = (props) => {
                 {cards.map(card => (
                     <Cards
                         houseName={card.houseName}
-                        image={card.image}
                         description={card.description}
                         backgroundImage={card.backgroundImage}
                     />

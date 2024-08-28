@@ -1,4 +1,4 @@
-import './login.css';
+import './register.css';
 
 import { FaUser, FaLock } from "react-icons/fa";
 import { useState } from 'react';
@@ -19,7 +19,7 @@ const Index = () => {
     <div className='home'>
       <div className="container">
         <form onSubmit={handleSubmit}>
-          <h1>Acesse o sistema</h1>
+          <h1>Cadastre-se</h1>
           <div className='input-field'>
             <input type="Email" placeholder='Email' onChange={(e) => setUsername(e.target.value)} />
             <FaUser className='icons'></FaUser>
@@ -29,18 +29,13 @@ const Index = () => {
             <FaLock className='icons'></FaLock>
           </div>
           <div className="recall-forget">
-            <label>
-              <input type="Checkbox" />
-                Lembrar de mim
-            </label>
-              <a href="#">Esqueceu a senha ?</a>
           </div>
           <div>
-            <button>Entrar</button>
+            <button>Finalizar Cadastro</button>
           </div>
           <div className='signup-link'>
             <p>
-              Não tem uma conta ? <a href="#"> <Link to = "/Register">Registrar</Link> </a>
+                Já possui uma conta ? <a href="#"><Link to = "/Login">Faça seu login </Link></a>
             </p>
           </div>
         </form>

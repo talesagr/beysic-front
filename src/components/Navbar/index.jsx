@@ -19,7 +19,9 @@ const Navbar = () => {
                     <Link to = "/Login">  
                     <button id={'login'}>Login</button>
                     </Link>
+                    <Link to = "/Register"> 
                     <button id={'register'}>Registrar</button>
+                    </Link>
                 </div>
             </div>
         </nav>
