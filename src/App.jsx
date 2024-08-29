@@ -3,9 +3,11 @@ import ReactDom from "react-dom/client";
 import Main from "./pages/main";
 import Login from './pages/login'
 import Register from './pages/register';
+import Forgot from  './pages/forgot';
 import './index.css'
 
 import { createBrowser, createBrowserRouter, RouterProvider} from "react-router-dom";
+import EventsDetails from './pages/events';
 
 const router = createBrowserRouter([
     {
@@ -20,7 +22,14 @@ const router = createBrowserRouter([
         path : "/Register",
         element : <Register />
     },
-    
+    {
+        path : "/Forgot",
+        element : <Forgot />
+    },
+    {
+        path  : "/event/:id",
+        element : <EventsDetails />
+    }
 ]);
 
 ReactDom.createRoot(document.getElementById("root")).render(
