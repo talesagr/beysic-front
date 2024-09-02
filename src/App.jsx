@@ -1,8 +1,9 @@
 import React from 'react';
-import ReactDom from "react-dom/client";
-import Main from "./pages/main";
-import Login from './pages/login'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Main from './pages/main';
+import Login from './pages/login';
 import Register from './pages/register';
+import PrivateRoute from './components/PrivateRoute';
 import Forgot from  './pages/forgot';
 import './index.css'
 
@@ -11,16 +12,16 @@ import EventsDetails from './pages/events';
 
 const router = createBrowserRouter([
     {
-        path : "/",
-        element : <Main />
+        path: "/",
+        element: <PrivateRoute component={Main} />,
     },
     {
-        path : "/Login",
-        element : <Login />
+        path: "/login",
+        element: <Login />,
     },
     {
-        path : "/Register",
-        element : <Register />
+        path: "/register",
+        element: <Register />,
     },
     {
         path : "/Forgot",
@@ -32,18 +33,8 @@ const router = createBrowserRouter([
     }
 ]);
 
-ReactDom.createRoot(document.getElementById("root")).render(
-    <React.StrictMode>
-        <RouterProvider router={router} />
-    </React.StrictMode>
-)
-
 function App() {
-    return (
-        <div className='app'>
-            <Login />
-        </div>
-    );
+    return <RouterProvider router={router} />;
 }
 
 export default App;

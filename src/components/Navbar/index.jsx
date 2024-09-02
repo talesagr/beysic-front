@@ -1,7 +1,16 @@
 import "./navbar.css"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import React from 'react'
 
 const Navbar = () => {
+    const navigate = useNavigate();
+    const token = localStorage.getItem("token");
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        navigate('/login');
+    }
+
     return (
         <nav className={'navbar'}>
             <div className={"left"}>
