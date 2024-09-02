@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.image-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 600px;
+    overflow: hidden; /* Garantir que a imagem não ultrapasse os limites do contêiner */
+}
+
+.image-container img {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 100%; /* Ajustar a largura da imagem desfocada */
+    height: 80%; /* Manter a proporção da imagem */
+    transform: translate(-50%, -50%); /* Centralizar a imagem */
+    filter: blur(10px); /* Desfocar a imagem */
+    z-index: 1; /* Garantir que a imagem esteja abaixo do pseudo-elemento */
+    object-fit: cover; /* Fazer a imagem cobrir o contêiner */
+}
+
+.image-container::after {
+    content: '';
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%; /* Tamanho da área focada */
+    height: 70%;
+    background: url('https://www.designi.com.br/images/preview/11807908.jpg') no-repeat center/cover;
+    z-index: 2; /* Colocar a imagem focada acima da imagem desfocada */
+    clip-path: ellipse(25% at center); /* Recortar a imagem para mostrar apenas o centro focado */
+    border-radius: 20px;
+}

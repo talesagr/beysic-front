@@ -45,6 +45,7 @@ const LoginForm = ({onSubmit, error, loading}) => {
               <label>
                 <input type="Checkbox"/>
                 Lembrar de mim
+
               </label>
               <a href="#">Esqueceu a senha ?</a>
             </div>
@@ -64,9 +65,9 @@ const LoginForm = ({onSubmit, error, loading}) => {
             </div>
           </form>
         </div>
+
       </div>
 
   )
 }
 export default LoginForm
-
