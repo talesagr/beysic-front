@@ -11,6 +11,15 @@ export default function Register() {
 
     const handleRegister = async (userData) => {
         setLoading(true);
+
+        const { name, email, password, isProducer } = userData;
+        console.log(userData)
+        if (!name || !email || !password || typeof isProducer !== 'boolean') {
+            setError("Preencha todos os campos obrigatórios corretamente.");
+            setLoading(false);
+            return;
+        }
+
         try {
             const response = await axios.post('http://localhost:3000/user/register', userData,
                 {headers: {

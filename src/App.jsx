@@ -6,8 +6,6 @@ import Register from './pages/register';
 import PrivateRoute from './components/PrivateRoute';
 import Forgot from  './pages/forgot';
 import './index.css'
-
-import { createBrowser, createBrowserRouter, RouterProvider} from "react-router-dom";
 import EventsDetails from './pages/events';
 
 const router = createBrowserRouter([
