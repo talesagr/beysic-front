@@ -12,7 +12,7 @@ export default function Register() {
     const handleRegister = async (userData) => {
         setLoading(true);
         try {
-            const response = await axios.post('http://localhost:3000/user', userData,
+            const response = await axios.post('http://localhost:3000/user/register', userData,
                 {headers: {
                     'Content-Type': 'application/json'
             }});
