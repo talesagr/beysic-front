@@ -1,6 +1,7 @@
 import "./navbar.css"
 import { Link, useNavigate } from 'react-router-dom';
 import React from 'react'
+import {FaUserCircle} from "react-icons/fa";
 
 const Navbar = () => {
     const navigate = useNavigate();
@@ -25,16 +26,30 @@ const Navbar = () => {
                     <button>Agenda</button>
                     <button>Contato</button>
                 <div className={"auth"}>
-                    <Link to = "/Login">  
-                    <button id={'login'}>Login</button>
-                    </Link>
-                    <Link to = "/Register"> 
-                    <button id={'register'}>Registrar</button>
-                    </Link>
+                    {token ? (
+                        <div className="profile-menu">
+                            <FaUserCircle size={24} /> {}
+                            <div className="dropdown">
+                                <Link to="/profile">
+                                    <button id={'profile'}>Meu Perfil</button>
+                                </Link>
+                                <button onClick={handleLogout} id={'logout'}>Logout</button>
+                            </div>
+                        </div>
+                    ) : (
+                        <>
+                        <Link to = "/Login">
+                            <button id={'login'}>Login</button>
+                        </Link>
+                        <Link to = "/Register">
+                            <button id={'register'}>Registrar</button>
+                        </Link>
+                        </>
+                    )}
                 </div>
             </div>
         </nav>
-    )
+    );
 }
 
 export default Navbar
