@@ -36,3 +36,31 @@
     clip-path: ellipse(25% at center); /* Recortar a imagem para mostrar apenas o centro focado */
     border-radius: 20px;
 }
+
+.ticket-card {
+    display: flex;
+    background-color: red;
+    width: 50px;
+    text-overflow: clip;
+}
+
+.background-text {
+    width: 500px;
+}
+
+.content-ticket {
+    background-color: bisque;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    height: 100%;
+       
+}
+
+.ticket-info {
+    display: flex;
+    justify-content: center;
+    min-width: 100%;
+    min-height: 100%;
+    flex-direction:column;
+}
