@@ -1,31 +1,34 @@
 import { Link } from 'react-router-dom';
 import './eventsdetails.css'
 import { PriceTagEvent } from '../PriceTagEvent';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const EventsDetails = () => {
 
     const [quantities, setQuantities] = useState({
-        lote1:23,
-        lote2:23,
-        lote3:23,
+        lote1:2,
+        lote2:3,
+        lote3:1,
     });
+    const [totalPrice, setTotalPrice] = useState(0);
+    const prices = {
+        lote1: 10.00,
+        lote2: 50.00,
+        lote3: 150.00
+    };
+    useEffect(() => {
+        const newTotalPrice = (prices.lote1 * quantities.lote1) + (prices.lote2 * quantities.lote2) + (prices.lote3 * quantities.lote3);
+        setTotalPrice(newTotalPrice);
+    }, [quantities]);
 
-    const updateQuantity = (lote, newQuantity) => {
+    const updateQuantity = (batch, newQuantity) => {
         setQuantities((prevQuantities) => ({
             ...prevQuantities,
-            [lote]: newQuantity
+            [batch]: newQuantity
         }));
     };
 
-    const prices = {
-        lote1: 150.00,
-        lote2: 150.00,
-        lote3: 150.00
-    };
-
-    const totalPrice = (prices.lote1 * quantities.lote1) + (prices.lote2 * quantities.lote2) + (prices.lote3 * quantities.lote3);
-
+    console.log(totalPrice)
     return (
         <div className='ticket-info'>
             <div className='image-container'>
