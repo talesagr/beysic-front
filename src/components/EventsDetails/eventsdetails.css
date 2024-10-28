@@ -8,19 +8,19 @@
     display: flex;
     width: 100%;
     height: 600px;
-    overflow: hidden; /* Garantir que a imagem não ultrapasse os limites do contêiner */
+    overflow: hidden;
 }
 
 .image-container img {
     position: absolute;
     top: 30%;
     left: 50%;
-    width: 100%; /* Ajustar a largura da imagem desfocada */
-    height: 80%; /* Manter a proporção da imagem */
-    transform: translate(-50%, -50%); /* Centralizar a imagem */
-    filter: blur(10px); /* Desfocar a imagem */
-    z-index: 1; /* Garantir que a imagem esteja abaixo do pseudo-elemento */
-    object-fit: cover; /* Fazer a imagem cobrir o contêiner */
+    width: 100%;
+    height: 80%;
+    transform: translate(-50%, -50%);
+    filter: blur(10px);
+    z-index: 1;
+    object-fit: cover;
 }
 
 .image-container::after {
@@ -29,32 +29,35 @@
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70%; /* Tamanho da área focada */
+    width: 70%;
     height: 70%;
     background: url('https://www.designi.com.br/images/preview/11807908.jpg') no-repeat center/cover;
-    z-index: 2; /* Colocar a imagem focada acima da imagem desfocada */
-    clip-path: ellipse(25% at center); /* Recortar a imagem para mostrar apenas o centro focado */
+    z-index: 2;
+    clip-path: ellipse(25% at center);
     border-radius: 20px;
 }
 
 .ticket-card {
+    width: 35%;
+    background-color: #575757;
     display: flex;
-    background-color: red;
-    width: 50px;
-    text-overflow: clip;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 10px;
 }
 
 .background-text {
-    width: 500px;
+    width: 60%;
+    text-align: left;
 }
 
 .content-ticket {
-    background-color: bisque;
     display: flex;
+    justify-content: space-between;
     width: 100%;
     align-items: center;
     height: 100%;
-       
+    padding: 20px;
 }
 
 .ticket-info {
@@ -62,5 +65,30 @@
     justify-content: center;
     min-width: 100%;
     min-height: 100%;
-    flex-direction:column;
+    flex-direction: column;
+}
+
+.ticket-card-info {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 10px;
+    color: whitesmoke;
+}
+
+.end-buy-button {
+    background-color: #4A814F;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 0 0 5px 5px;
+}
+
+.end-buy-button:hover {
+    background-color: #3a6b3f;
 }

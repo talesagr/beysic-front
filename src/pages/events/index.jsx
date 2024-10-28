@@ -6,9 +6,9 @@ export default function Login() {
     return(
         <>
             <Navbar/>
-            <body className='events-body'>
+            <div className='events-body'>
                 <EventsDetails/>
-            </body>
+            </div>
         </>
     )
 }
