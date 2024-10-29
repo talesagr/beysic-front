@@ -98,7 +98,7 @@ const EventsDetails = () => {
                             setQuantity={(newQuantity) => updateQuantity(`lote${ticket.id}`, newQuantity)}
                         />
                     ))}
-                    <button className="end-buy-button" onClick={handleCheckout}>Finalizar Compra</button>
+                    <button className="end-buy-button" onClick={handleCheckout}>Adicionar ao Carrinho</button>
                 </div>
             </div>
         </div>
