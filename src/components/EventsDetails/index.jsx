@@ -2,24 +2,45 @@ import { Link } from 'react-router-dom';
 import './eventsdetails.css'
 import { PriceTagEvent } from '../PriceTagEvent';
 import {useEffect, useState} from "react";
+import axios from 'axios';
 
 const EventsDetails = () => {
-
-    const [quantities, setQuantities] = useState({
-        lote1:2,
-        lote2:3,
-        lote3:1,
-    });
+    const [tickets, setTickets] = useState([]);
+    const [quantities, setQuantities] = useState({});
     const [totalPrice, setTotalPrice] = useState(0);
-    const prices = {
-        lote1: 10.00,
-        lote2: 50.00,
-        lote3: 150.00
-    };
+    const [prices, setPrices] = useState({});
+
     useEffect(() => {
-        const newTotalPrice = (prices.lote1 * quantities.lote1) + (prices.lote2 * quantities.lote2) + (prices.lote3 * quantities.lote3);
+        const fetchTickets = async () => {
+            try {
+                const response = await axios.get('http://localhost:3001/ticket');
+                const fetchedTickets = response.data;
+
+                const initialQuantities = {};
+                const initialPrices = {};
+
+                fetchedTickets.forEach((ticket) => {
+                    initialQuantities[`lote${ticket.id}`] = 0;
+                    initialPrices[`lote${ticket.id}`] = ticket.price;
+                });
+
+                setTickets(fetchedTickets);
+                setQuantities(initialQuantities);
+                setPrices(initialPrices);
+            } catch (error) {
+                console.error("Erro ao buscar os tickets: ", error);
+            }
+        };
+
+        fetchTickets();
+    }, []);
+
+    useEffect(() => {
+        const newTotalPrice = Object.keys(quantities).reduce((acc, key) => {
+            return acc + (prices[key] * quantities[key]);
+        }, 0);
         setTotalPrice(newTotalPrice);
-    }, [quantities]);
+    }, [quantities, prices]);
 
     const updateQuantity = (batch, newQuantity) => {
         setQuantities((prevQuantities) => ({
@@ -28,7 +49,25 @@ const EventsDetails = () => {
         }));
     };
 
-    console.log(totalPrice)
+    const handleCheckout = async () => {
+        try {
+            const userId = 1; //o id do user vai vir do cache do usuario logado
+            const cartItems = tickets.map(ticket => ({
+                ticketId: ticket.id,
+                quantity: 2,
+            }))
+
+            for (const item of cartItems) {
+                const response = await axios.post(
+                    `http://localhost:3001/shop-cart/${userId}/add`, item)
+                console.log(response.data)
+            }
+            console.log('Carrinho atualizado com sucesso!');
+        } catch (e) {
+            console.error("Erro ao adicionar ao carrinho: ", e)
+        }
+    }
+
     return (
         <div className='ticket-info'>
             <div className='image-container'>
@@ -50,25 +89,16 @@ const EventsDetails = () => {
                         <h2>Ingressos</h2>
                         <p>R$ {totalPrice.toFixed(2)}</p>
                     </div>
-                    <PriceTagEvent
-                        batch={"LOTE 1"}
-                        price={`R$${prices.lote1}`}
-                        quantity={quantities.lote1}
-                        setQuantity={(newQuantity) => updateQuantity('lote1', newQuantity)}
-                    />
-                    <PriceTagEvent
-                        batch={"LOTE 2"}
-                        price={`R$${prices.lote2}`}
-                        quantity={quantities.lote2}
-                        setQuantity={(newQuantity) => updateQuantity('lote2', newQuantity)}
-                    />
-                    <PriceTagEvent
-                        batch={"LOTE 3"}
-                        price={`R$${prices.lote3}`}
-                        quantity={quantities.lote3}
-                        setQuantity={(newQuantity) => updateQuantity('lote3', newQuantity)}
-                    />
-                    <button className="end-buy-button">Finalizar Compra</button>
+                    {tickets.map(ticket => (
+                        <PriceTagEvent
+                            key={ticket.id}
+                            batch={`LOTE ${ticket.id}`}
+                            price={`R$${prices[`lote${ticket.id}`]}`}
+                            quantity={quantities[`lote${ticket.id}`]}
+                            setQuantity={(newQuantity) => updateQuantity(`lote${ticket.id}`, newQuantity)}
+                        />
+                    ))}
+                    <button className="end-buy-button" onClick={handleCheckout}>Finalizar Compra</button>
                 </div>
             </div>
         </div>
