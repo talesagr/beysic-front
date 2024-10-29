@@ -72,7 +72,9 @@ const RegisterForm = ({onSubmit, error, success, loading, setError, setSuccess})
                 />
                 <FaLock className='icons'></FaLock>
               </div>
+              <div className='produtor'>
               <CheckboxComponent name="Sou um Produtor?" onChange={handleCheckboxChange}/>
+              </div>
               <div className="recall-forget">
               </div>
 

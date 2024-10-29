@@ -7,6 +7,9 @@ import PrivateRoute from './components/PrivateRoute';
 import Forgot from  './pages/forgot';
 import './index.css'
 import EventsDetails from './pages/events';
+import NewEventsForm from './pages/newEvents';
+import Tickets from './pages/tickets';
+import Contact from './components/Contact';
 
 const router = createBrowserRouter([
     {
@@ -22,12 +25,24 @@ const router = createBrowserRouter([
         element: <Register />,
     },
     {
-        path : "/Forgot",
+        path : "/forgot",
         element : <Forgot />
     },
     {
         path  : "/event/:id",
         element : <EventsDetails />
+    }, 
+    {
+        path  : "/newEventsForm",
+        element : <NewEventsForm />
+    },
+    {
+        path : "/tickets",
+        element : <Tickets />
+    },
+    {
+        path : "/contact",
+        element : <Contact />
     }
 ]);
 

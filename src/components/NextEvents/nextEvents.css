@@ -5,12 +5,27 @@
 
 .next-events-title{
     display: flex;
-    flex-direction: column;
-    margin: 36px;
+    padding: 20px 4%;
+    margin: 20px 55px 0 50px;
+    justify-content: space-between;
 }
 
 .display-cards{
-    margin-left: 40px;
+    padding: 20px 4%;
     display: flex;
     justify-content: space-evenly;
+}
+.novo-evento button{
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    font-weight:600;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+.novo-evento button:hover{
+    background-color: #34699C;
+    color: #FBC02D;
+    transform: translateY(-2px); 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
 }
