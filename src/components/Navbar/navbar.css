@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+ a{
+    text-decoration: none;
+}
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -16,6 +19,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .left h1{
@@ -83,11 +87,17 @@
 
 .right #login {
     background-color: #FBC02D;
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
 }
 
 .right #register {
     background-color: #1A4B7A;
     color: #E3E3E3;
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
 }
 
 

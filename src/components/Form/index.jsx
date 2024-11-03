@@ -47,7 +47,7 @@ const LoginForm = ({onSubmit, error, loading}) => {
                 Lembrar de mim
 
               </label>
-              <a href="#">Esqueceu a senha ?</a>
+              <a href="/Forgot">Esqueceu a senha ?</a>
             </div>
 
             {error && <div className="error-message">{error}</div>}

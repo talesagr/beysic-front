@@ -1,0 +1,25 @@
+.container-contact{
+    display: flex;
+    margin: 80px;
+    height: 500px;
+    background-color: aliceblue;
+    justify-content: space-between;
+}
+.tx-contact{
+    width: 50%;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.tx-contact-two{
+    width: 50%;
+    background-color: blueviolet;
+}
+.contact-nome-email{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}

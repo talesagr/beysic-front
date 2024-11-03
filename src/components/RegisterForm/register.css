@@ -80,6 +80,7 @@
 
 .container button:hover{
     cursor: pointer;
+    background-color: #34699C;
     color: #FBC02D;
 }
 
@@ -87,4 +88,7 @@
     font-size:  15px;
     text-align: center;
     margin: 20px 0 10px;
+}
+.produtor{
+    margin-bottom: 10px;
 }

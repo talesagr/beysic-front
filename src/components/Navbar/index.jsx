@@ -19,12 +19,18 @@ const Navbar = () => {
                 <h1>Beysic</h1>
             </div>
             <div className={"right"}>
+                    <Link to ="/tickets">
                     <button>Ingressos</button>
+                    </Link>
                     <Link to ="/">
                     <button>Eventos</button>
                     </Link>
+                    <Link to = "/">
                     <button>Agenda</button>
+                    </Link>
+                    <Link to = "/contact">
                     <button>Contato</button>
+                    </Link>
                 <div className={"auth"}>
                     {token ? (
                         <div className="profile-menu">

@@ -1,0 +1,105 @@
+.container-new-events{
+    background-color:#58a3cf ;
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 85vh;
+
+}
+h1{
+    margin-top: 20px;
+}
+.info-events{
+    width: 600px;
+    height: 600px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px; 
+    margin-top: 20px;       
+}
+.form-events{
+    margin: 20px;
+}
+.input-field-new-events input{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid rgba(26, 24, 24, 0.2);
+    border-radius: 16px;
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.input-field-new-events input::placeholder {
+    color: #000;
+}
+.btn-end{
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.salvar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.salvar button{
+    width: 400px;
+    height: 60px;
+    background-color: #ffff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    font-weight: 600;
+    text-shadow: none;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+.salvar button:hover{
+    cursor: pointer;
+    color: #FBC02D;
+    background-color: #34699C;
+    transform: translateY(-2px); 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+/* Oculta o input de arquivo padrão */
+.file-upload input[type="file"] {
+    display: none;
+}
+
+/* Estiliza o label como um botão */
+.file-upload .file-label {
+    width: 400px;
+    height: 60px;
+    border-radius: 40px;
+    background-color: #fff;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;     
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    gap: 20px;
+}
+
+.file-upload .file-label:hover {
+    cursor: pointer;
+    color: #FBC02D;
+    background-color: #34699C;
+    transform: translateY(-2px); 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
+}
+.icon-nuvem{
+    font-size: 40px;
+}
