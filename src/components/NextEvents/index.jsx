@@ -1,7 +1,7 @@
 import './nextEvents.css';
 import Cards from "../Cards";
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { PiFilmSlateDuotone } from "react-icons/pi";
 import { BsMusicNoteList } from "react-icons/bs";
 import { MdOutlineSportsBasketball } from "react-icons/md";
@@ -48,8 +48,8 @@ const NextEvents = (props) => {
     ];
     let categories = [
         "festa", "hallowen" , "esporte", "cinema", "teatro", "corrida"
-    ]  
-
+    ]
+    const navigate = useNavigate()
     return (
         isLoading ? (
             <div className="loader-container">
@@ -88,26 +88,36 @@ const NextEvents = (props) => {
                 )}
                 <section>
                     <div className='category-events'>
-                        <button>
-                        <div className='cat-circle'>
-                            <i><PiFilmSlateDuotone /></i>
-                        </div>
+                        <button onClick={() => navigate(`/event?category=${categories.at(0)}`)}>
+                            <div className='cat-circle'>
+                                <i><PiFilmSlateDuotone/></i>
+                            </div>
                         </button>
-                        <div className='cat-circle'>
-                            <i><BsMusicNoteList /></i>
-                        </div>
-                        <div className='cat-circle'>
-                            <i><MdOutlineSportsBasketball /></i>
-                        </div>
-                        <div className='cat-circle'>
-                            <i><GiPumpkinMask /></i>
-                        </div>
-                        <div className='cat-circle'>
-                            <i><FaMasksTheater /></i>
-                        </div>
-                        <div className='cat-circle'>
-                            <i><SiF1 /></i>
-                        </div>
+                        <button onClick={() => navigate(`/event?category=${categories.at(1)}`)}>
+                            <div className='cat-circle'>
+                                <i><BsMusicNoteList/></i>
+                            </div>
+                        </button>
+                        <button onClick={() => navigate(`/event?category=${categories.at(2)}`)}>
+                            <div className='cat-circle'>
+                                <i><MdOutlineSportsBasketball/></i>
+                            </div>
+                        </button>
+                        <button onClick={() => navigate(`/event?category=${categories.at(3)}`)}>
+                            <div className='cat-circle'>
+                                <i><GiPumpkinMask/></i>
+                            </div>
+                        </button>
+                        <button onClick={() => navigate(`/event?category=${categories.at(4)}`)}>
+                            <div className='cat-circle'>
+                                <i><FaMasksTheater/></i>
+                            </div>
+                        </button>
+                        <button onClick={() => navigate(`/event?category=${categories.at(5)}`)}>
+                            <div className='cat-circle'>
+                                <i><SiF1/></i>
+                            </div>
+                        </button>
                     </div>
                 </section>
             </>
