@@ -9,7 +9,8 @@ import './index.css'
 import EventsDetails from './pages/events';
 import NewEventsForm from './pages/newEvents';
 import Tickets from './pages/tickets';
-import Contact from './components/Contact';
+import Contact from './pages/contact';
+import Agenda from './pages/agenda';
 
 const router = createBrowserRouter([
     {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
     {
         path : "/contact",
         element : <Contact />
+    },
+    {
+        path : "/agenda",
+        element : <Agenda />
     }
 ]);
 

@@ -9,7 +9,7 @@ const NewEventsForm = () => {
     const [ticket, setTicket] = useState("");
 
     return (
-        <div className="container-new-events">
+        <div className="container-new-events fade-in">
             <h1>Crie seu Evento</h1>
             <div className="info-events">
                 <div className='form-events'>

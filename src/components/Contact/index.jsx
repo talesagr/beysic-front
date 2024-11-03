@@ -1,24 +1,33 @@
+import { FaCloudUploadAlt } from "react-icons/fa";
+import { useState } from 'react';
 import './contact.css'
 
 const Contact = () => {
     return (
-        <div className='container-contact'>
-            <div className='tx-contact'>
-                <div className='contact-nome-email'>
-                    <input className = 'contact-nome'  type="text" placeholder='Nome' />
+        <div className='container-contact fade-in'>
+                <div className="title-contact">
+                    <h2>Fale com a Beysic</h2>
+                </div>
+                <div className='contact-inf'>
+                <div>
+                    <input className='information' type="text" placeholder='Nome' />
                 </div>
                 <div>
-                    <input type="text" placeholder='E-mail' />
-                </div>
-            </div>
-            <div className='tx-contact-two'>
-                <div>
-                    <input type="text" placeholder='Telefone' />
+                    <input className='information' type="text" placeholder='E-mail' />
                 </div>
                 <div>
-                    <input type="text" placeholder='Assunto' />
+                    <input className='information' type="text" placeholder='Telefone' />
                 </div>
-            </div>
+                <div>
+                    <input className='information' type="text" placeholder='Assunto' />
+                </div>
+                <div>
+                    <input className='message' type="text" placeholder='Mensagem' />
+                </div>
+                <div className="button-enviar">
+                    <button>Enviar</button>
+                </div>
+                </div>
         </div>
     );
 }

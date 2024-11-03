@@ -16,7 +16,7 @@ const Index = () => {
   }
   return (
     <div className='home'>
-      <div className="container">
+      <div className="container fade-in">
         <form onSubmit={handleSubmit}>
           <h1>Recuperar Acesso</h1>
           <div className='input-field'>

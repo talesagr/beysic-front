@@ -15,7 +15,7 @@ const LoginForm = ({onSubmit, error, loading}) => {
   }
   return (
       <div className='home'>
-        <div className="container">
+        <div className="container fade-in">
           <form onSubmit={handleSubmit}>
             <h1>Acesse o sistema</h1>
 

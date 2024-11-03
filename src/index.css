@@ -21,3 +21,29 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+::-webkit-scrollbar{
+    width: 15px;
+    background-color: #ffffff;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgba(62, 55, 55, 0.15);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(17, 16, 16, 0.2);;
+    border-radius: 50px;
+}
+
+/* Transição suave de todas as telas */
+.fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 2s forwards; /* Ajuste a duração conforme necessário */
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

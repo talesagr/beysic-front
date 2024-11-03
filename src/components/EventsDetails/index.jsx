@@ -27,7 +27,7 @@ const EventsDetails = () => {
     const totalPrice = (prices.lote1 * quantities.lote1) + (prices.lote2 * quantities.lote2) + (prices.lote3 * quantities.lote3);
 
     return (
-        <div className='ticket-info'>
+        <div className='ticket-info fade-in'>
             <div className='image-container'>
                 <img src={"https://www.designi.com.br/images/preview/11807908.jpg"} alt={'name'}></img>
             </div>
