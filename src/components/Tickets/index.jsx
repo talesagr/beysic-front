@@ -7,7 +7,7 @@ import { MdQrCode2 } from "react-icons/md";
 
 const Tickets = () => {
     return (
-        <div className='container-tickets'>
+        <div className='container-tickets fade-in'>
             <div className='title-tickets'>
                 <h3>Meus ingressos</h3>
                 <div className='icon-ticket'>

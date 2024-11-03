@@ -37,7 +37,7 @@ const RegisterForm = ({onSubmit, error, success, loading, setError, setSuccess})
 
     return (
         <div className='home'>
-          <div className="container">
+          <div className="container fade-in">
             <form onSubmit={handleSubmit}>
               <h1>Cadastre-se</h1>
               <div className='input-field'>

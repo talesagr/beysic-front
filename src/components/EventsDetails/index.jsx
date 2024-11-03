@@ -69,7 +69,7 @@ const EventsDetails = () => {
     }
 
     return (
-        <div className='ticket-info'>
+        <div className='ticket-info fade-in'>
             <div className='image-container'>
                 <img src={"https://www.designi.com.br/images/preview/11807908.jpg"} alt={'name'}></img>
             </div>

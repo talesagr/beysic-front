@@ -25,7 +25,7 @@ const Navbar = () => {
                     <Link to ="/">
                     <button>Eventos</button>
                     </Link>
-                    <Link to = "/">
+                    <Link to = "/agenda">
                     <button>Agenda</button>
                     </Link>
                     <Link to = "/contact">
