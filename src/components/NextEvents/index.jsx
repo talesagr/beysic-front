@@ -11,45 +11,42 @@ import { SiF1 } from "react-icons/si";
 
 const NextEvents = (props) => {
     const [isLoading, setIsLoading] = useState(true);
+    const navigate = useNavigate();
+    const [cards, setCards] = useState([]);
+    const [categories, setCategories] = useState([]);
 
-    // Simula um carregamento para o loader
+
     useEffect(() => {
+        const fetchEvents = async () => {
+            try {
+                const response = await fetch('http://localhost:3001/ticket');
+                const data = await response.json();
+                setCards(data);
+            } catch (error) {
+                console.error('Erro ao buscar eventos:', error);
+            }
+        };
+
+        const fetchCategories = async () => {
+            try {
+                const response = await fetch('http://localhost:3001/ticket/categories');
+                const data = await response.json();
+                setCategories(data);
+            } catch (error) {
+                console.error('Erro ao buscar categorias:', error);
+            }
+        };
+
+        fetchEvents();
+        fetchCategories();
         setTimeout(() => {
             setIsLoading(false);
-        }, 4000); // tempo de carregamento simulado de 4 segundos
+        }, 3000);
     }, []);
 
-    // Dados dos eventos (mockados)
-    let cards = [
-        {
-            eventName: 'Pagodinho dos cria',
-            eventDate: '29/08',
-            houseName: 'Bocatto',
-            description: 'Erechim, RS',
-            backgroundImage: 'https://w.wallhaven.cc/full/9d/wallhaven-9dp3y1.jpg',
-            id: 1
-        },
-        {
-            eventName: 'Icaro e Gilmar',
-            eventDate: '30/08',
-            houseName: 'Veld',
-            description: 'Erechim, RS',
-            backgroundImage: 'https://w.wallhaven.cc/full/9d/wallhaven-9dp3y1.jpg',
-            id: 2
-        },
-        {
-            eventName: 'Encontro de carros',
-            eventDate: '31/08',
-            houseName: 'Posto Tradição',
-            description: 'Erechim, RS',
-            backgroundImage: 'https://w.wallhaven.cc/full/9d/wallhaven-9dp3y1.jpg',
-            id: 3
-        },
-    ];
-    let categories = [
-        "festa", "hallowen" , "esporte", "cinema", "teatro", "corrida"
-    ]
-    const navigate = useNavigate()
+
+
+
     return (
         isLoading ? (
             <div className="loader-container">
