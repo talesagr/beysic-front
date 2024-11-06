@@ -1,0 +1,41 @@
+.footer{
+    width: 100%;
+    height: 200px;
+    background-color: #34699C;
+    margin-top: 60px;
+}
+.footer h2{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+
+}
+.container-payments{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.icons-pagaments{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 40px;
+}
+.cartoes{
+    height: 80px;
+    width: 80px;
+}
+.mark-and-icons{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.mark{
+    color: #a4aab0;
+}
+.icons-footer{
+    font-size: 30px;
+}

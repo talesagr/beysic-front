@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar';
 import Form from '../../components/Form/index';
 import './login.css';
 import {useNavigate} from "react-router-dom";
+import {Footer} from "../../components/Footer";
 
 export default function Login() {
     const [error, setError] = useState(null);
@@ -36,6 +37,7 @@ export default function Login() {
             <div className='login-body'>
                 <Form onSubmit={handleLogin} error={error} loading={loading} />
             </div>
+            <Footer />
         </>
     );
 }

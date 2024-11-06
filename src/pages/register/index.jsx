@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar'
 import RegisterForm from '../../components/RegisterForm';
 import './register.css'
 import axios from "axios";
+import {Footer} from "../../components/Footer";
 
 export default function Register() {
     const [error, setError] = useState(null)
@@ -54,6 +55,7 @@ export default function Register() {
                     setError={setError}
                 />
             </body>
+            <Footer />
         </>
     )
 }
