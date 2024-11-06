@@ -97,31 +97,162 @@
 
     }
 }
-
 .category-events{
-    background-color: #34699C;
-    width: 100%;
+   
+    width: 80%;
     height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction:row;
+    padding: 0%;
+   
+}
+.btn-category {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #FBC02D;
+    border: none;
+    font-size: 40px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+
+}
+.btn-category:hover{
+    background-color: #34699C;
+    color: #FBC02D;
+    transform: translateY(-2px); 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
+}
+.swiper{
+    width: 80%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title-category{
+    margin-left: 110px;
+}
+
+.section-promoted{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+.container-promoted{
+    width: 85%;
+    height: 450px;
+    background-color: rgb(246, 250, 250);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
+    margin-left:110px ;
+}
+.img-container-promoted img{
+    width: 600px;
+    height: 400px;
+    margin:30px;
+    border-radius: 10px;
+}
+.inf-container-promoted{
+    width: 500px;
+    height: 200px;
+    margin-top: 80px;
+}
+.btn-container-promoted{
+  display: flex;
+  justify-content:end;
+  margin-top: 200px;
+  margin-right: 20px;
+
+}
+.btn-container-promoted button{
+    width: 200px;
+    height: 40px;
+    background-color: #FBC02D;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+.btn-container-promoted button:hover{
+    background-color: #34699C;
+    color: #FBC02D;
+    transform: translateY(-2px); 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
+}
+.title-section-promoted {
+    margin-left: 110px;
+    margin-bottom: 40px;
+}
+.swiper-promoted{
+    height: 500px;
+    width: 100%;
+}
+
+/* Posiciona as setas de navegação dentro do Swiper */
+.swiper-promoted .swiper-button-next,
+.swiper-promoted .swiper-button-prev {
+    color:#FBC02D; /* Ajuste a cor das setas conforme necessário */
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+}
+
+.swiper-promoted .swiper-button-next {
+    right: 120px; /* Ajuste conforme necessário */
+}
+
+.swiper-promoted .swiper-button-prev {
+    left: 110px; /* Ajuste conforme necessário */
+}
+
+.footer{
+    width: 100%;
+    height: 200px;
+    background-color: #34699C;
+    margin-top: 60px;
+}
+.footer h2{
+    display: flex;
+   justify-content: center;
+   margin: 20px;
+  
+}
+.container-payments{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.icons-pagaments{
+    display: flex;
+    justify-content: center;
     flex-direction: row;
     gap: 40px;
 }
-
-.cat-circle{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #FBC02D;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
+.cartoes{
+    height: 80px;
+    width: 80px;
 }
-.btn-cat button:hover{
-    cursor: pointer;
-    background-color: #34699C;
-    color: #FBC02D;
-    }
-
+.mark-and-icons{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.mark{
+    color: #a4aab0;
+}
+.icons-footer{
+    font-size: 30px;
+}
