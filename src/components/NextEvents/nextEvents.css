@@ -14,7 +14,9 @@
     padding: 20px 4%;
     display: flex;
     justify-content: space-evenly;
+    height: 400px; 
 }
+
 .novo-evento button{
     padding: 20px;
     border-radius: 10px;
@@ -124,7 +126,7 @@
     transform: translateY(-2px); 
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
 }
-.swiper{
+.swiper-category{
     width: 80%;
     height: 200px;
     display: flex;
@@ -214,3 +216,4 @@
 .swiper-promoted .swiper-button-prev {
     left: 110px; /* Ajuste conforme necessário */
 }
+

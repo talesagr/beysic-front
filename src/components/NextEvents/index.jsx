@@ -28,6 +28,7 @@ const NextEvents = (props) => {
         const fetchCategories = async () => {
             try {
                 const response = await fetch('http://localhost:3001/ticket/categories');
+                console.log(response.json())
                 const data = await response.json();
                 setCategories(data);
             } catch (error) {
@@ -67,23 +68,32 @@ const NextEvents = (props) => {
                             </div>
                         </div>
                         <div className="display-cards">
+                        <Swiper 
+                            slidesPerView={3}
+                            loop={true}
+                            pagination={{ clickable: true }}
+                            navigation={{ clickable: true }}
+                        >
                             {cards.map(card => (
-                                <Link to={`/event/${card.id}`} key={card.id}>
-                                    <Cards
-                                        eventName={card.eventName}
-                                        eventDate={card.eventDate}
-                                        houseName={card.houseName}
-                                        description={card.description}
-                                        backgroundImage={card.backgroundImage}
-                                    />
-                                </Link>
+                                <SwiperSlide key={card.id}>
+                                    <Link to={`/event/${card.id}`}>
+                                        <Cards
+                                            eventName={card.eventName}
+                                            eventDate={card.eventDate}
+                                            houseName={card.houseName}
+                                            description={card.description}
+                                            backgroundImage={card.backgroundImage}
+                                        />
+                                    </Link>
+                                </SwiperSlide>
                             ))}
+                        </Swiper>
                         </div>
                     </div>
                 )}
                 <section className='section-category'>
                     <h1 className='title-category'>Categoria</h1>
-                    <div className='swiper'>
+                    <div className='swiper-category'>
                         <Swiper
                             slidesPerView={4}
                             pagination={{ clickable: true }}
