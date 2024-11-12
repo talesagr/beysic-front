@@ -27,8 +27,7 @@ const NextEvents = (props) => {
 
         const fetchCategories = async () => {
             try {
-                const response = await fetch('http://localhost:3001/ticket/categories');
-                console.log(response.json())
+                const response = await fetch('http://localhost:3001/ticket/category');
                 const data = await response.json();
                 setCategories(data);
             } catch (error) {
@@ -74,8 +73,8 @@ const NextEvents = (props) => {
                             pagination={{ clickable: true }}
                             navigation={{ clickable: true }}
                         >
-                            {cards.map(card => (
-                                <SwiperSlide key={card.id}>
+                            {cards.map((card,index) => (
+                                <SwiperSlide key={card.id || `card-${index}`}>
                                     <Link to={`/event/${card.id}`}>
                                         <Cards
                                             eventName={card.eventName}
@@ -99,10 +98,10 @@ const NextEvents = (props) => {
                             pagination={{ clickable: true }}
                             navigation={{ clickable: true }}
                         >
-                            {categories.map((cat) => (
-                                <SwiperSlide key={cat.id}>
+                            {categories.map((cat, index) => (
+                                <SwiperSlide key={cat.id || `cat-${index}`}>
                                     <div className='category-events'>
-                                        <button className='btn-category' onClick={() => navigate(`/event?category=${cat.id}`)}>
+                                        <button className='btn-category' onClick={() => navigate(`/ticket/category/${cat.name}`)}>
                                             {cat.icon}
                                         </button>
                                     </div>
@@ -120,8 +119,8 @@ const NextEvents = (props) => {
                         pagination={{ clickable: true }}
                         navigation
                     >
-                        {cards.map((card) => (
-                            <SwiperSlide key={card.id}>
+                        {cards.map((card, index) => (
+                            <SwiperSlide key={card.id || `promoted-${index}`}>
                                 <div className='container-promoted'>
                                     <div className='img-container-promoted'>
                                         <img src={card.backgroundImage} alt={card.eventName} />
