@@ -3,6 +3,7 @@ import './eventsdetails.css'
 import { PriceTagEvent } from '../PriceTagEvent';
 import {useEffect, useState} from "react";
 import axios from 'axios';
+import CheckoutCartPopup from "../CheckoutCartPopup";
 
 const EventsDetails = () => {
     const {id} = useParams();
@@ -10,6 +11,7 @@ const EventsDetails = () => {
     const [quantities, setQuantities] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
     const [price, setprice] = useState(0);
+    const [showPopup, setShowPopup] = useState(false);
 
     useEffect(() => {
         const fetchTicket = async () => {
@@ -45,11 +47,19 @@ const EventsDetails = () => {
 
             const response = await axios.post(
                 `http://localhost:3001/shop-cart/${userId}/add`, cartItem)
-            console.log(response.data)
+            if (response.status !== 201) {
+                console.log('Deu b.o');
+                return
+            }
+            setShowPopup(true)
             console.log('Carrinho atualizado com sucesso!');
         } catch (e) {
             console.error("Erro ao adicionar ao carrinho: ", e)
         }
+    }
+
+    const closePopup = () => {
+        setShowPopup(false)
     }
 
     return (
@@ -82,10 +92,15 @@ const EventsDetails = () => {
                             setQuantity={updateQuantity}
                     />
                     )}
-                    <button className="end-buy-button" onClick={handleCheckout}>Adicionar ao Carrinho</button>
+                    {
+                        quantities === 0 ?
+                            <button disabled={true} className="end-buy-button-disabled" onClick={handleCheckout}>Adicionar ao Carrinho</button> :
+                            <button className="end-buy-button" onClick={handleCheckout}>Adicionar ao Carrinho</button>
+                    }
                 </div>
             </div>
+            <CheckoutCartPopup showPopup={showPopup} closePopup={closePopup}/>
         </div>
-    )
+)
 }
 export default EventsDetails
