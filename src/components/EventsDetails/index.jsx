@@ -1,67 +1,51 @@
-import { Link } from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import './eventsdetails.css'
 import { PriceTagEvent } from '../PriceTagEvent';
 import {useEffect, useState} from "react";
 import axios from 'axios';
 
 const EventsDetails = () => {
-    const [tickets, setTickets] = useState([]);
-    const [quantities, setQuantities] = useState({});
+    const {id} = useParams();
+    const [ticket, setTicket] = useState(null);
+    const [quantities, setQuantities] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
-    const [prices, setPrices] = useState({});
+    const [price, setprice] = useState(0);
 
     useEffect(() => {
-        const fetchTickets = async () => {
+        const fetchTicket = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/ticket');
-                const fetchedTickets = response.data;
+                const response = await axios.get(`http://localhost:3001/ticket/${id}`);
+                const ticketData = response.data;
 
-                const initialQuantities = {};
-                const initialPrices = {};
-
-                fetchedTickets.forEach((ticket) => {
-                    initialQuantities[`lote${ticket.id}`] = 0;
-                    initialPrices[`lote${ticket.id}`] = ticket.price;
-                });
-
-                setTickets(fetchedTickets);
-                setQuantities(initialQuantities);
-                setPrices(initialPrices);
+                setTicket(ticketData);
+                setprice(parseFloat(ticketData.price));
             } catch (error) {
-                console.error("Erro ao buscar os tickets: ", error);
+                console.error("Erro ao buscar o ticket: ", error);
             }
         };
 
-        fetchTickets();
-    }, []);
+        fetchTicket()
+    }, [id]);
 
     useEffect(() => {
-        const newTotalPrice = Object.keys(quantities).reduce((acc, key) => {
-            return acc + (prices[key] * quantities[key]);
-        }, 0);
-        setTotalPrice(newTotalPrice);
-    }, [quantities, prices]);
+        setTotalPrice(price * quantities);
+    }, [quantities, price]);
 
-    const updateQuantity = (batch, newQuantity) => {
-        setQuantities((prevQuantities) => ({
-            ...prevQuantities,
-            [batch]: newQuantity
-        }));
+    const updateQuantity = (newQuantity) => {
+        setQuantities(newQuantity)
     };
 
     const handleCheckout = async () => {
         try {
             const userId = 1; //o id do user vai vir do cache do usuario logado
-            const cartItems = tickets.map(ticket => ({
+            const cartItem = {
                 ticketId: ticket.id,
-                quantity: 2,
-            }))
-
-            for (const item of cartItems) {
-                const response = await axios.post(
-                    `http://localhost:3001/shop-cart/${userId}/add`, item)
-                console.log(response.data)
+                quantity: quantities,
             }
+
+            const response = await axios.post(
+                `http://localhost:3001/shop-cart/${userId}/add`, cartItem)
+            console.log(response.data)
             console.log('Carrinho atualizado com sucesso!');
         } catch (e) {
             console.error("Erro ao adicionar ao carrinho: ", e)
@@ -89,15 +73,15 @@ const EventsDetails = () => {
                         <h2>Ingressos</h2>
                         <p>R$ {totalPrice.toFixed(2)}</p>
                     </div>
-                    {tickets.map(ticket => (
+                    {ticket && (
                         <PriceTagEvent
                             key={ticket.id}
-                            batch={`LOTE ${ticket.id}`}
-                            price={`R$${prices[`lote${ticket.id}`]}`}
-                            quantity={quantities[`lote${ticket.id}`]}
-                            setQuantity={(newQuantity) => updateQuantity(`lote${ticket.id}`, newQuantity)}
-                        />
-                    ))}
+                            batch={`LOTE 1`}
+                            price={`R$${price.toFixed(2)}`}
+                            quantity={quantities}
+                            setQuantity={updateQuantity}
+                    />
+                    )}
                     <button className="end-buy-button" onClick={handleCheckout}>Adicionar ao Carrinho</button>
                 </div>
             </div>
