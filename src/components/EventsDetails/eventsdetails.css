@@ -34,7 +34,7 @@
     background: url('https://www.designi.com.br/images/preview/11807908.jpg') no-repeat center/cover;
     z-index: 2;
     clip-path: ellipse(25% at center);
-    border-radius: 20px;
+    border-radius: 0px 0px 20px 20px;
 }
 
 .ticket-card {

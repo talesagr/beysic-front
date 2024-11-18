@@ -5,9 +5,13 @@
 
 .next-events-title{
     display: flex;
-    padding: 20px 4%;
-    margin: 20px 55px 0 50px;
+    margin-left: 100px;
+    margin-right: 140px;
     justify-content: space-between;
+    align-items: center;
+}
+.next-events-title h2{
+margin-top: 40px;
 }
 
 .display-cards{
@@ -15,6 +19,20 @@
     display: flex;
     justify-content: space-evenly;
     height: 400px; 
+}
+.swiper-cards-events{
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-cards-events .swiper-button-next {
+    right: 10px; /* Ajuste conforme necessário */
+}
+
+.swiper-cards-events .swiper-button-prev {
+    left: 10px; /* Ajuste conforme necessário */
 }
 
 .novo-evento button{

@@ -4,6 +4,7 @@
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave para movimento e sombra */
+    margin-top: 12px;
 }
 
 .cards:hover {
@@ -27,6 +28,7 @@
     max-height: 200px;
     border-radius: 10px 10px 0px 0px;
     object-fit: cover;
+    
 }
 
 .cards .bottom {

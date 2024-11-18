@@ -27,24 +27,31 @@ const NextEvents = (props) => {
 
         const fetchCategories = async () => {
             try {
-                const response = await fetch('http://localhost:3001/ticket/categories');
-                console.log(response.json())
-                const data = await response.json();
+                const response = await fetch('http://localhost:3001/ticket/category');
+                console.log(response.body)
+                // Verifique se a resposta está OK (status 200-299)
+                if (!response.ok) {
+                    throw new Error(`Erro: ${response.status} - ${response.statusText}`);
+                }
+                
+                // Verifique se há conteúdo na resposta antes de converter para JSON
+                const text = await response.text();
+                const data = text ? JSON.parse(text) : [];  // Use um array vazio caso não haja dados
+        
                 setCategories(data);
             } catch (error) {
                 console.error('Erro ao buscar categorias:', error);
             }
         };
-
+        
+        // Chamadas das funções
         fetchEvents();
         fetchCategories();
         setTimeout(() => {
             setIsLoading(false);
-        }, 3000);
+        }, 3000);;
+        
     }, []);
-
-
-
 
     return (
         isLoading ? (
@@ -68,11 +75,10 @@ const NextEvents = (props) => {
                             </div>
                         </div>
                         <div className="display-cards">
-                        <Swiper 
+                        <Swiper className='swiper-cards-events'
                             slidesPerView={3}
                             loop={true}
-                            pagination={{ clickable: true }}
-                            navigation={{ clickable: true }}
+                            pagination={{ clickable: true }}  
                         >
                             {cards.map(card => (
                                 <SwiperSlide key={card.id}>
