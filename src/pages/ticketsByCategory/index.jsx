@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from "../../components/Navbar";
 import {Footer} from "../../components/Footer";
 import TicketsByCategory from "../../components/TicketsByCategory";
-import './ticketByCategoryPage.css'
 
 export default function ticketsByCategory() {
     return (
