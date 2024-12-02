@@ -10,17 +10,19 @@ const Tickets = () => {
     const [tickets, setTickets] = useState([]);
     const userId = 1
 
+    const fetchTickets = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3001/ticket/user/${userId}`);
+            console.log(response)
+            setTickets(response.data);
+        } catch (e) {
+            console.error('Erro ao buscar ingressos:', e);
+        }
+    };
+
     useEffect(() => {
-        const fetchTickets = async () => {
-            try{
-                const response = await axios.get(`http://localhost:3001/ticket/user/${userId}`);
-                setTickets(response.data);
-            } catch (e) {
-                console.error("Erro ao buscar ingressos: ", e)
-            }
-        };
-        fetchTickets()
-    },[])
+        fetchTickets();
+    }, []);
     return (
         <div className='container-tickets fade-in'>
             <div className='title-tickets'>

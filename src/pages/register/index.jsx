@@ -22,7 +22,7 @@ export default function Register() {
         }
 
         try {
-            const response = await axios.post('http://localhost:3000/user/register', userData,
+            const response = await axios.post('http://localhost:3001/user/register', userData,
                 {headers: {
                     'Content-Type': 'application/json'
             }});

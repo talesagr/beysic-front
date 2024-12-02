@@ -45,6 +45,7 @@ const CheckoutCartPopup = ({ showPopup, closePopup}) => {
             } else {
                 console.log("Pagamento finalizado com sucesso:", response.data);
                 setCartItems([]);
+                //onPaymentSuccess();
                 closePopup();
             }
         } catch (error) {
