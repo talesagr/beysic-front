@@ -23,7 +23,6 @@ const CheckoutCartPopup = ({ showPopup, closePopup}) => {
             if (showPopup) {
                 try {
                     const res = await axios.get(`http://localhost:3001/shop-cart/${userId}`);
-                    console.log(res.data)
                     setCartItems(res.data.items);
                 } catch (e) {
                     console.error("Erro ao carregar carrinho: ", e)

@@ -1,0 +1,82 @@
+.tickets-category {
+    padding: 20px;
+    text-align: center;
+}
+
+.ticket-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.ticket-item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+}
+
+.ticket-item h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.ticket-item p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.PriceTagEvent-container {
+    margin: 10px 0;
+    width: 100%;
+}
+
+.end-buy-button, .end-buy-button-disabled {
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.end-buy-button, .end-buy-button-disabled {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+
+.end-buy-button {
+    background-color: #FBC02D;
+    color: #fff;
+}
+
+.end-buy-button:hover {
+    background-color: #34699C;
+}
+
+.end-buy-button-disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}

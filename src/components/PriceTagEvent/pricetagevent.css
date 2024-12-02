@@ -15,7 +15,7 @@
 }
 
 .quantity-controls p {
-    margin: 0 10px;
+    margin: 0 20px;
 }
 
 .quantity-controls button {
@@ -24,10 +24,17 @@
     cursor: pointer;
     font-size: 16px;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .quantity-controls button:hover {
     background-color: #575757;
+    color: #FFF;
+    transform: scale(1.1);
 }

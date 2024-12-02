@@ -16,6 +16,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css';
 import { register } from 'swiper/element/bundle';
+import TicketsByCategory from "./pages/ticketsByCategory";
 
 register();
 
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
     {
         path : "/agenda",
         element : <Agenda />
+    },
+    {
+        path : "/ticket/category/:categoryName",
+        element : <TicketsByCategory />
     }
 ]);
 

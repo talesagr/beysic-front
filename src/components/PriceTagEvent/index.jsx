@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import './pricetagevent.css'
 
 export const PriceTagEvent = (props) => {
